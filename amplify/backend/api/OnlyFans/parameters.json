@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "OnlyFans",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2023-11-09T10:42:19.199Z"
+}
