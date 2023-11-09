@@ -1,3 +1,4 @@
+import { Link } from 'expo-router';
 import { useRouter } from 'expo-router';
 import {
   View,
@@ -60,14 +61,19 @@ const UserProfileHeader = ({ user, isSubscribed, setIsSubscribed }) => {
             marginTop: -50,
           }}
         >
-          <Image src={user.avatar} style={styles.userImage} />
+          <Image source={{ uri: user.avatar }} style={styles.userImage} />
+      
           <FontAwesome name="share-square-o" size={24} color="royalblue" />
         </View>
 
         <Text style={{ fontSize: 20, fontWeight: '600', marginVertical: 5 }}>
           {user.name}
         </Text>
-        <Text style={{ color: 'gray', marginBottom: 10 }}>@{user.handle}</Text>
+        
+        <Link href={{ pathname: "/profile/[id].js" }}>
+          <Text style={{ color: 'gray', marginBottom: 10 }}>@{user.handle}</Text>
+        </Link>
+
         <Text style={{ lineHeight: 20 }} numberOfLines={5}>
           {user.bio}
         </Text>
