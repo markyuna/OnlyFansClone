@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import { DataStore } from "aws-amplify"
 import { User } from '../src/models';
 
+import { AntDesign } from '@expo/vector-icons';
+
 export default function Page() {
   const [users, setUsers] = useState([]);
 
@@ -18,13 +20,17 @@ export default function Page() {
 
   return (
     <View style={styles.container}>
-      <Link href={'/newPost'}>New post</Link>
       <Text onPress={() => signOut()}>Sign out</Text>
       <FlatList
         data={users}
         renderItem={({ item }) => <UserCard user={item} />}
         showsVerticalScrollIndicator={false}
       />
+
+      <Link href={'/newPost'} style={styles.buttonNewPost}>
+        <AntDesign name="pluscircle" size={50} color="royalblue" />
+      </Link>
+     
     </View>
   );
 }
@@ -34,5 +40,10 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     paddingTop: 75,
+  },
+  buttonNewPost: {
+    position: 'absolute',
+    bottom: 40,
+    right: 40,
   },
 });

@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // import DestinationSearchScreen from "../screens/DestinationSearch";
 // import GuestsScreen from "../screens/Guests";
 // import HomeScreen from "../screens/Home";
 // import PostScreen from "../screens/PostScreen";
-// import HomeTabNavigator from "./HomeTabNavigator";
-import SignInScreen from '../screens/SignInScreen';
-import SignUpScreen from '../screens/SignUpScreen';
-import ConfirmEmailScreen from '../screens/ConfirmEmailScreen';
-import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
-import NewPasswordScreen from '../screens/NewPasswordScreen';
+import HomeTabNavigator from "./HomeTabNavigator";
+import SignInScreen from '../../src/screens/SignInScreen';
+import SignUpScreen from '../../src/screens/SignUpScreen';
+import ConfirmEmailScreen from '../../src/screens/ConfirmEmailScreen';
+import ForgotPasswordScreen from '../../src/screens/ForgotPasswordScreen';
+import NewPasswordScreen from '../../src/screens/NewPasswordScreen';
 import { Auth, Hub } from 'aws-amplify';
 
-// const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 
 const Router = (props) => {
   const [user, setUser] = useState(undefined);
@@ -66,9 +66,9 @@ const Router = (props) => {
             <Stack.Screen name="NewPassword" component={NewPasswordScreen} />
           </>
         )}
-        <Stack.Screen name={"Destination Search"} component={DestinationSearchScreen} options={{ title: "Search your destination" }} />
+        {/* <Stack.Screen name={"Destination Search"} component={DestinationSearchScreen} options={{ title: "Search your destination" }} />
         <Stack.Screen name={"Guests"} component={GuestsScreen} options={{ title: "How many people?" }} />
-        <Stack.Screen name={"Post"} component={PostScreen} options={{ title: "Accommodation" }} />
+        <Stack.Screen name={"Post"} component={PostScreen} options={{ title: "Accommodation" }} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

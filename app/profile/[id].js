@@ -1,5 +1,6 @@
+import { Link } from 'expo-router';
 import React from "react";
-import { View, Pressable, Text } from "react-native";
+import { StyleSheet, View, Pressable, Text, FlatList } from "react-native";
 import { Auth } from 'aws-amplify';
 
 const ProfileScreen = () => {
@@ -11,6 +12,10 @@ const ProfileScreen = () => {
 
   return (
     <View style={{height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>      
+      <View style={styles.container}>
+        <Link href={'/newPost'}>New post</Link>
+        
+      </View>
       <Pressable
         onPress={signOut}
         style={{
@@ -19,11 +24,20 @@ const ProfileScreen = () => {
           backgroundColor: '#cfcfcf',
           justifyContent: 'center',
           alignItems: 'center',
+          marginBottom: 50,
         }}>
         <Text>Sign out</Text> 
       </Pressable>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+    paddingTop: 75,
+  },
+});
 
 export default ProfileScreen;
