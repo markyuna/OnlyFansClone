@@ -3,6 +3,9 @@ module.exports = function (api) {
   return {
     presets: ["babel-preset-expo"],
     plugins: [
+      ["@babel/plugin-transform-modules-commonjs", {
+        "allowTopLevelThis": true
+      }],
       "@babel/plugin-proposal-export-namespace-from",
       "react-native-reanimated/plugin",
       require.resolve("expo-router/babel"),

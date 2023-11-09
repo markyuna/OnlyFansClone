@@ -1,11 +1,9 @@
 import { Stack } from 'expo-router';
-import { API, Amplify, Hub } from 'aws-amplify';
+import { API, Amplify, Hub, DataStore } from 'aws-amplify';
 import awsconfig from '../src/aws-exports';
-import { DataStore } from '@aws-amplify/datastore';
 import { Authenticator } from '@aws-amplify/ui-react-native';
 import { useEffect } from 'react';
 import { User } from '../src/models';
-// import users from '../assets/data/users';
 
 Amplify.configure(awsconfig);
 
@@ -28,7 +26,8 @@ export default function RootLayout() {
         const userInfo = data.payload.data.attributes;
         console.log(JSON.stringify(userInfo, null, 2));
 
-        DataStore.save(new User({ id: userInfo.sub, name: userInfo.name }));
+        // DataStore.save(new User({ id: userInfo.sub, name: userInfo.name, handle: userInfo.nickname,
+        //   subscriptionPrice: 0, }));
 
         // save user to database
         const newUser = {
@@ -41,6 +40,7 @@ export default function RootLayout() {
           query: CreateUserMutation,
           variables: { input: newUser },
         });
+        console.log('User saved to database');
       }
     });
 

@@ -15,8 +15,11 @@
       "auth": {
         "OnlyFans": {}
       },
-      "api": {
-        "OnlyFans": {}
+      "function": {
+        "S3Trigger140d2c3e": {
+          "deploymentBucketName": "amplify-onlyfans-staging-221817-deployment",
+          "s3Key": "amplify-builds/S3Trigger140d2c3e-74364468334f6b504579-build.zip"
+        }
       }
     }
   }
