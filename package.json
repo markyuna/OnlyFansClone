@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@aws-amplify/datastore": "^4.7.6",
     "@aws-amplify/ui-react-native": "^1.2.28",
     "@gerhobbelt/babel-plugin-proposal-export-namespace-from": "^7.2.1-26",
     "@react-native-async-storage/async-storage": "1.18.2",

@@ -76,5 +76,11 @@
       ]
     }
   },
-  "storage": {}
+  "storage": {
+    "s3onlyfansstoragef14bde4c": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    }
+  }
 }

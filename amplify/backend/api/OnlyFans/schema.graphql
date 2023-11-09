@@ -15,4 +15,6 @@ type User @model @auth(rules: [{allow: public}]) {
   coverImage: String
   subscriptionPrice: Float!
   Posts: [Post] @hasMany(indexName: "byUser", fields: ["id"])
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
 } 

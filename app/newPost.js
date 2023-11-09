@@ -10,7 +10,8 @@ import { useState, useEffect } from 'react';
 import { Feather, Ionicons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import { useRouter } from 'expo-router';
-import { DataStore, Storage } from 'aws-amplify';
+import { DataStore } from 'aws-amplify';
+import { Storage } from "@aws-amplify/storage"
 import { Post } from '../src/models';
 import * as Crypto from 'expo-crypto';
 import { useAuthenticator } from '@aws-amplify/ui-react-native';
