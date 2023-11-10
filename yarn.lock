@@ -6938,6 +6938,17 @@ metro-file-map@0.80.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
+metro-inspector-proxy@^0.78.1:
+  version "0.78.1"
+  resolved "https://registry.npmjs.org/metro-inspector-proxy/-/metro-inspector-proxy-0.78.1.tgz"
+  integrity sha512-irhOtManF1xuVep0J2ba5F3l55gzvcG7YH7eD1Z0m7rsGklXVTz1Jx+1XYZMop8r6DSPCDAAus0W5gW2Ay5I+w==
+  dependencies:
+    connect "^3.6.5"
+    debug "^2.2.0"
+    node-fetch "^2.2.0"
+    ws "^7.5.1"
+    yargs "^17.6.2"
+
 metro-minify-terser@0.80.1:
   version "0.80.1"
   resolved "https://registry.npmjs.org/metro-minify-terser/-/metro-minify-terser-0.80.1.tgz"
@@ -8003,10 +8014,10 @@ react-native-get-random-values@^1.4.0:
   dependencies:
     fast-base64-decode "^1.0.0"
 
-react-native-pager-view@*, "react-native-pager-view@>= 4.0.0":
-  version "6.2.2"
-  resolved "https://registry.npmjs.org/react-native-pager-view/-/react-native-pager-view-6.2.2.tgz"
-  integrity sha512-MLkJB7iP6v0Hd4/B4/R/gLCSE+YBtjxG/vHZYBDU+fI3U7HBYgKAg4o6ad8HxbKVcWWyRDNeeVRGISw1MUjlHw==
+react-native-pager-view@*, "react-native-pager-view@>= 4.0.0", react-native-pager-view@6.2.0:
+  version "6.2.0"
+  resolved "https://registry.npmjs.org/react-native-pager-view/-/react-native-pager-view-6.2.0.tgz"
+  integrity sha512-pf9OnL/Tkr+5s4Gjmsn7xh91PtJLDa6qxYa/bmtUhd/+s4cQdWQ8DIFoOFghwZIHHHwVdWtoXkp6HtpjN+r20g==
 
 react-native-reanimated@*, react-native-reanimated@~3.3.0:
   version "3.3.0"

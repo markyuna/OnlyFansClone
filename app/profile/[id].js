@@ -5,7 +5,6 @@ import { Auth } from 'aws-amplify';
 
 const ProfileScreen = () => {
 
-
   const signOut = () => {
     Auth.signOut();
   };
