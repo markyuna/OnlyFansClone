@@ -8,7 +8,9 @@ import {
   StyleSheet,
   SafeAreaView,
   Image,
-  Pressable, Modal
+  Pressable, 
+  Modal,
+  Share
 } from 'react-native';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import CustomButton from './CustomButton/CustomButton';
@@ -22,9 +24,27 @@ const UserProfileHeader = ({ user, isSubscribed, setIsSubscribed }) => {
 
   const router = useRouter();
 
-  const handleSharePress = () => {
-    // Implement share functionality here
+  const handleSharePress = async () => {
+    try {
+      const result = await Share.share({
+        message: 'Check out this profile!',
+        url: user.avatar, // You can replace this with the actual URL you want to share
+        title: 'Profile Share',
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      console.error('Error sharing:', error.message);
+    }
   };
+  
 
   return (
     <View>
@@ -95,7 +115,14 @@ const UserProfileHeader = ({ user, isSubscribed, setIsSubscribed }) => {
                   style={{ marginLeft: 20, marginTop: 40 }}
                 />
           
-                <FontAwesome name="ellipsis-h" size={28} color="white" style={{ marginRight: 20, marginTop: 40 }}/>
+                <FontAwesome
+                  name="ellipsis-h"
+                  size={28}
+                  color="white"
+                  style={{ marginRight: 20, marginTop: 40 }}
+                  onPress={handleSharePress}
+                />
+
               </View>
 
               <View style={styles.modalView}>
