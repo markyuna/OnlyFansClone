@@ -10,9 +10,14 @@ import {
   Pressable,
 } from 'react-native';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
+import CustomButton from './CustomButton/CustomButton';
 
 const UserProfileHeader = ({ user, isSubscribed, setIsSubscribed }) => {
   const router = useRouter();
+
+  const handleSharePress = () => {
+    // Implement share functionality here
+  };
 
   return (
     <View>
@@ -56,14 +61,30 @@ const UserProfileHeader = ({ user, isSubscribed, setIsSubscribed }) => {
         <View
           style={{
             flexDirection: 'row',
-            alignItems: 'flex-end',
+            alignItems: 'center',
             justifyContent: 'space-between',
             marginTop: -50,
           }}
         >
           <Image source={{ uri: user.avatar }} style={styles.userImage} />
-      
-          <FontAwesome name="share-square-o" size={24} color="royalblue" />
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              alignItems: 'center',
+              marginHorizontal: 15,
+              marginVertical: 20,
+              borderWidth: 2,
+              borderRadius: 50,
+            }}
+          >
+          <CustomButton text="Editer profil" />
+
+          </View>
+          <Image source={{ uri: user.avatar }} style={styles.userImage} />
+          <CustomButton onPress={() => console.log('Edit profile pressed')} text="Editer profil" />
+          <CustomButton onPress={handleSharePress} text={<FontAwesome name="share-square-o" size={24} color="#00aff0" />} />
         </View>
 
         <Text style={{ fontSize: 20, fontWeight: '600', marginVertical: 5 }}>

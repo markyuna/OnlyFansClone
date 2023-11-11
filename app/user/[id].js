@@ -41,7 +41,7 @@ const ProfilePage = () => {
             backgroundColor: 'gainsboro',
             alignItems: 'center',
             padding: 20,
-          }}
+          }} 
         >
           <FontAwesome5 name="lock" size={50} color="gray" />
           <Text

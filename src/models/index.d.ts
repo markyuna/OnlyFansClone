@@ -43,7 +43,6 @@ export declare const Post: (new (init: ModelInit<Post>) => Post) & {
 type EagerUser = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<User, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
   readonly name: string;
@@ -53,14 +52,13 @@ type EagerUser = {
   readonly coverImage?: string | null;
   readonly subscriptionPrice: number;
   readonly Posts?: (Post | null)[] | null;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
+  readonly createdAt: string;
+  readonly updatedAt: string;
 }
 
 type LazyUser = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<User, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
   readonly name: string;
@@ -70,8 +68,8 @@ type LazyUser = {
   readonly coverImage?: string | null;
   readonly subscriptionPrice: number;
   readonly Posts: AsyncCollection<Post>;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
+  readonly createdAt: string;
+  readonly updatedAt: string;
 }
 
 export declare type User = LazyLoading extends LazyLoadingDisabled ? EagerUser : LazyUser
