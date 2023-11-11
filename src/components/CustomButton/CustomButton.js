@@ -2,12 +2,10 @@ import React, { useState, useRef } from 'react';
 import { View, Text, StyleSheet, Pressable, Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const CustomButton = ({ onPress, text, type = 'PRIMARY', bgColor, fgColor, iconName = 'settings-outline' }) => {
+const CustomButton = ({ iconName = 'settings-outline', onPress, text, type = 'PRIMARY', bgColor, fgColor}) => {
   const scaleValue = useRef(new Animated.Value(1)).current;
-  const [isPressed, setIsPressed] = useState(false);
 
   const handlePressIn = () => {
-    setIsPressed(true);
     Animated.spring(scaleValue, {
       toValue: 0.9,
       useNativeDriver: true,
@@ -15,47 +13,38 @@ const CustomButton = ({ onPress, text, type = 'PRIMARY', bgColor, fgColor, iconN
   };
 
   const handlePressOut = () => {
-    setIsPressed(false);
     Animated.spring(scaleValue, {
       toValue: 1,
       useNativeDriver: true,
     }).start();
   };
 
-  const containerStyles = [
-    styles.container,
-    bgColor ? { backgroundColor: 'gray' } : {},
-    styles[`container_${type}`],
-    { transform: [{ scale: scaleValue }] },
-  ];
-
-  const textStyles = [
-    styles.text,
-    styles[`text_${type}`],
-    fgColor ? { color: fgColor } : {},
-  ];
-
   return (
     <Pressable
       onPress={onPress}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
-      style={containerStyles}
+      style={({ pressed }) => [
+        styles.container,
+        bgColor ? { backgroundColor: 'transparent' } : {},
+        styles[`container_${type}`],
+        { transform: [{ scale: pressed ? 0.9 : 1 }] },
+      ]}
     >
-      <Ionicons name={iconName} size={24} color={isPressed ? 'white' : '#00aff0'} />
-      <Text style={textStyles}>{text}</Text>
+      
+      <Text style={[styles.text, styles[`text_${type}`]]}>{text}</Text>
     </Pressable>
   );
 };
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({ 
   container: {
-    width: '80%',
     flexDirection: 'row',
-    padding: 15,
-    marginVertical: 5,
+    padding: 8,
     alignItems: 'center',
-    borderRadius: 25,
+    borderRadius: 50,
+    borderWidth: 2,
+    borderColor: '#fefefe',
   },
 
   container_PRIMARY: {
@@ -67,7 +56,9 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
 
-  container_TERTIARY: {},
+  container_TERTIARY: {
+    // Add styles for TERTIARY if needed
+  },
 
   text: {
     fontWeight: 'bold',
@@ -75,7 +66,7 @@ const styles = StyleSheet.create({
   },
 
   text_SECONDARY: {
-    color: '#transparent',
+    // Add styles for text_SECONDARY if needed
   },
 
   text_TERTIARY: {
