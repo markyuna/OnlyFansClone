@@ -5,6 +5,9 @@ import { Authenticator } from '@aws-amplify/ui-react-native';
 import { useEffect } from 'react';
 import { User } from '../src/models';
 
+
+
+
 Amplify.configure(awsconfig);
 
 const CreateUserMutation = `
@@ -53,7 +56,7 @@ export default function RootLayout() {
   return (
     <Authenticator.Provider>
       <Authenticator>
-        <Stack screenOptions={{ headerShown: false }} />
+        <Stack screenOptions={{ headerShown: false }}  />
       </Authenticator>
     </Authenticator.Provider>
   );
