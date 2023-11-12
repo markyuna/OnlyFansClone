@@ -1,0 +1,11 @@
+// tsconfig.jest.json
+{
+  "compilerOptions": {
+    "jsx": "react-native",
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  }
+}
