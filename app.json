@@ -19,6 +19,12 @@
       "expo-router"
     ],
     "name": "OnlyFansClone",
-    "slug": "OnlyFansClone"
+    "slug": "OnlyFansClone",
+    "android": {
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.markyuna.OnlyFansClone"
+    }
   }
 }

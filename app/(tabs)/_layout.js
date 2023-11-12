@@ -8,7 +8,7 @@ export default function TabsLayout() {
             <Tabs.Screen 
                 name="home" 
                 options={{
-                    showLabel: false,
+                    showTabLabel: false,
                     tabBarIcon: ({ color, size }) => (
                         <Feather name="home" size={24} color="black" />
                     ),
@@ -17,7 +17,7 @@ export default function TabsLayout() {
             <Tabs.Screen 
                 name="search" 
                 options={{
-                    showLabel: false,
+                    showTabLabel: false,
                     tabBarIcon: ({ color, size }) => (
                         <Feather name="search" size={24} color="black" />
                     ),
@@ -26,7 +26,7 @@ export default function TabsLayout() {
             <Tabs.Screen 
                 name="communaute" 
                 options={{
-                    showLabel: false,
+                    showTabLabel: false,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons name="group" size={24} color="black" />
                     ),
@@ -35,7 +35,7 @@ export default function TabsLayout() {
             <Tabs.Screen 
                 name="notifications" 
                 options={{
-                    showLabel: false,
+                    showTabLabel: false,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons name="notifications-none" size={24} color="black" />
                     ),
@@ -44,7 +44,7 @@ export default function TabsLayout() {
             <Tabs.Screen 
                 name="messages" 
                 options={{
-                    showLabel: false,
+                    showTabLabel: false,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons name="mail-outline" size={24} color="black" />
                     ),
