@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'expo-router';
-import { useRouter } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 import {
   View,
   Text,
@@ -15,8 +14,11 @@ import {
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import CustomButton from './CustomButton/CustomButton';
 
+import ImageModalContent from './ImageModalContent/ImageModalContent';
+
 const UserProfileHeader = ({ user, isSubscribed, setIsSubscribed }) => {
   const [isImageModalVisible, setImageModalVisible] = useState(false);
+
 
   const toggleImageModal = () => {
     setImageModalVisible(!isImageModalVisible);
@@ -44,6 +46,7 @@ const UserProfileHeader = ({ user, isSubscribed, setIsSubscribed }) => {
       console.error('Error sharing:', error.message);
     }
   };
+
   
 
   return (
@@ -105,35 +108,11 @@ const UserProfileHeader = ({ user, isSubscribed, setIsSubscribed }) => {
             visible={isImageModalVisible}
             onRequestClose={toggleImageModal}
           >
-            <View style={{ flex: 1, backgroundColor: 'black' }}>
-              <View style={styles.modalHeader}>
-                <Ionicons
-                  name="close"
-                  size={28}
-                  color="white"
-                  onPress={toggleImageModal}
-                  style={{ marginLeft: 20, marginTop: 40 }}
-                />
-          
-                <FontAwesome
-                  name="ellipsis-h"
-                  size={28}
-                  color="white"
-                  style={{ marginRight: 20, marginTop: 40 }}
-                  onPress={handleSharePress}
-                />
-
-              </View>
-
-              <View style={styles.modalView}>
-                <Image
-                  source={{ uri: user.avatar }} 
-                  style={{ position: 'relative', width: 300, height: 300, borderRadius: 400/ 2 }}
-                  resizeMode="cover"
-                />
-              </View>
-
-            </View>
+            <ImageModalContent
+              user={user}
+              toggleImageModal={toggleImageModal}
+              handleSharePress={handleSharePress}
+            />    
           </Modal>
         </View>
         
@@ -232,15 +211,15 @@ const styles = StyleSheet.create({
     color: 'royalblue',
     fontWeight: '600',
   },
-  modalHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 10,
-  },
-  modalView: {
-    marginVertical: 150,
-    alignItems: 'center',
-  },
+  // modalHeader: {
+  //   flexDirection: 'row',
+  //   justifyContent: 'space-between',
+  //   alignItems: 'center',
+  //   padding: 10,
+  // },
+  // modalView: {
+  //   marginVertical: 150,
+  //   alignItems: 'center',
+  // },
 });
 export default UserProfileHeader;
