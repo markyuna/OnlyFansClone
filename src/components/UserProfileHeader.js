@@ -211,15 +211,5 @@ const styles = StyleSheet.create({
     color: 'royalblue',
     fontWeight: '600',
   },
-  // modalHeader: {
-  //   flexDirection: 'row',
-  //   justifyContent: 'space-between',
-  //   alignItems: 'center',
-  //   padding: 10,
-  // },
-  // modalView: {
-  //   marginVertical: 150,
-  //   alignItems: 'center',
-  // },
 });
 export default UserProfileHeader;
