@@ -19,12 +19,12 @@ import ImageModalContent from './ImageModalContent/ImageModalContent';
 const UserProfileHeader = ({ user, isSubscribed, setIsSubscribed }) => {
   const [isImageModalVisible, setImageModalVisible] = useState(false);
 
+  const router = useRouter();
 
   const toggleImageModal = () => {
     setImageModalVisible(!isImageModalVisible);
   };
 
-  const router = useRouter();
 
   const handleSharePress = async () => {
     try {

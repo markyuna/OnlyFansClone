@@ -57,6 +57,7 @@ const ProfilePage = () => {
           >
             Subscribe to see user's posts
           </Text>
+   
         </View>
       </View>
     );
@@ -76,6 +77,7 @@ const ProfilePage = () => {
         )}
       />
     </View>
+      
   );
 };
 
