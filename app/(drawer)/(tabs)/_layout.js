@@ -1,6 +1,7 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
-import { Feather, MaterialIcons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+
 
 export default function TabsLayout() {
     const tabBarIcon = (name, size, color) => ({ color, size }) => (

@@ -137,7 +137,7 @@ const UserProfileHeader = ({ user, isSubscribed, setIsSubscribed }) => {
           {user.name}
         </Text>
         
-        <Link href={{ pathname: "/profile/[id].js" }}>
+        <Link href={{ pathname: "/profile" }}>
           <Text style={{ color: 'gray', marginBottom: 10 }}>@{user.handle}</Text>
         </Link>
 

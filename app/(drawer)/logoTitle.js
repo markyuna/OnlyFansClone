@@ -24,6 +24,5 @@ export default function LogoTitle() {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      // marginHorizontal: 20,
     }
   });

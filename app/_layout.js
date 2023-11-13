@@ -2,14 +2,10 @@
 // import { Button, Text, StyleSheet, View, FlatList } from 'react-native';
 
 import { Stack } from 'expo-router';
-import { Drawer } from 'expo-router/drawer';
 import { API, Amplify, Hub, DataStore } from 'aws-amplify';
 import awsconfig from '../src/aws-exports';
 import { Authenticator } from '@aws-amplify/ui-react-native';
 import { useEffect } from 'react';
-import { User } from '../src/models';
-
-import DrawerLayout from './(drawer)/_layout';
 
 
 Amplify.configure(awsconfig);
@@ -27,7 +23,6 @@ mutation createUser($input: CreateUserInput!) {
 `;
 
 export default function RootLayout() {
-  // const [open, setOpen] = React.useState(false);
 
   useEffect(() => {
     const removeListener = Hub.listen('auth', async (data) => {
