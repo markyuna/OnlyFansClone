@@ -1,18 +1,30 @@
 import React, { useState } from "react";
-import { Drawer } from "expo-router/drawer";
-import LogoTitle from './logoTitle';
+import { Drawer, DrawerItemList, DrawerItem } from "expo-router/drawer";
+import LogoTitle from '../logoTitle';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { Ionicons, Feather, FontAwesome5, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign, Ionicons, Feather, FontAwesome5, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { View, Text, Pressable } from "react-native";
+import { Auth } from 'aws-amplify';
+import { Link } from "expo-router";
+
 
 export default function DrawerLayout() {
 
-  return ( 
+    return ( 
     <Drawer 
-    screenOptions={{ 
-        headerTitle: props => <LogoTitle {...props} />,
-        headerShown: true, 
-        swipeEdgeWidth: 0,
-    }}
+        screenOptions={{ 
+            headerTitle: props => <LogoTitle {...props} />,
+            headerBackTitleVisible: false,
+            headerShown: true, 
+            swipeEdgeWidth: 0,
+            headerRight: () => {
+                return (
+                    <Link href={'/settings'} style={{ marginRight: 15 }}>
+                        <AntDesign name="setting" size={24} color="#00aff0" />
+                    </Link>
+                );
+              },
+        }}
     >
         <Drawer.Screen
             name="(tabs)"
@@ -77,7 +89,6 @@ export default function DrawerLayout() {
                 ),
             }}
         />
-        
     </Drawer>
   )
 }

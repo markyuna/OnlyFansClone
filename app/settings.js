@@ -1,6 +1,6 @@
 import { Link } from 'expo-router';
 import React from "react";
-import { StyleSheet, View, Pressable, Text, FlatList } from "react-native";
+import { StyleSheet, View, Pressable, Text } from "react-native";
 import { Auth } from 'aws-amplify';
 
 const SettingScreen = () => {
