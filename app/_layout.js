@@ -1,65 +1,60 @@
-// import * as React from 'react';
-// import { Button, Text, StyleSheet, View, FlatList } from 'react-native';
+import React, { useEffect } from 'react';
+import { StyleSheet } from 'react-native';
+import { Authenticator, Stack } from 'expo-router';
+import { API, Amplify, Hub } from 'aws-amplify';
 
-import { Stack } from 'expo-router';
-import { API, Amplify, Hub, DataStore } from 'aws-amplify';
-import awsconfig from '../src/aws-exports';
-import { Authenticator } from '@aws-amplify/ui-react-native';
-import { useEffect } from 'react';
+import awsExports from '../src/aws-exports';
+Amplify.configure(awsExports);
 
-
-Amplify.configure(awsconfig);
 
 const CreateUserMutation = `
-mutation createUser($input: CreateUserInput!) {
-  createUser(input: $input) {
-    id
-    name
-    handle
-    bio
-    subscriptionPrice
+  mutation createUser($input: CreateUserInput!) {
+    createUser(input: $input) {
+      id
+      name
+      handle
+      bio
+      subscriptionPrice
+    }
   }
-}
 `;
 
 export default function RootLayout() {
-
   useEffect(() => {
     const removeListener = Hub.listen('auth', async (data) => {
       if (data.payload.event === 'signIn') {
         const userInfo = data.payload.data.attributes;
-        console.log(JSON.stringify(userInfo, null, 2));
 
-        // DataStore.save(new User({ id: userInfo.sub, name: userInfo.name, handle: userInfo.nickname,
-        //   subscriptionPrice: 0, }));
-
-        // save user to database
         const newUser = {
           id: userInfo.sub,
           name: userInfo.name,
           handle: userInfo.nickname,
           subscriptionPrice: 0,
         };
+
         await API.graphql({
           query: CreateUserMutation,
           variables: { input: newUser },
         });
+
         console.log('User saved to database');
       }
     });
 
     return () => {
-      // cleanup function
-      removeListener();
+      removeListener(); // cleanup function
     };
   }, []);
 
   return (
     <Authenticator.Provider>
-      <Authenticator>
-        <Stack screenOptions={{ headerShown: false }}  />
-        {/* <DrawerLayout /> */}
+      <Authenticator theme={{/* Personaliza el tema aquí si es necesario */}}>
+        <Stack screenOptions={{ headerShown: false }} />
       </Authenticator>
     </Authenticator.Provider>
   );
 }
+
+const style = StyleSheet.create({
+  container: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+});

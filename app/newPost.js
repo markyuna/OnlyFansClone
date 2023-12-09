@@ -14,7 +14,7 @@ import { DataStore } from 'aws-amplify';
 import { Storage } from "@aws-amplify/storage"
 import { Post } from '../src/models';
 import * as Crypto from 'expo-crypto';
-import { useAuthenticator } from '@aws-amplify/ui-react-native';
+import { useAuthenticator } from '@aws-amplify/ui-react';
 
 const NewPost = () => {
   const [text, setText] = useState('');
