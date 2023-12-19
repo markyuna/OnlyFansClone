@@ -58,6 +58,7 @@
     "react-native-web": "~0.19.6"
   },
   "devDependencies": {
+    "@aws-amplify/cli": "^12.8.2",
     "@babel/core": "^7.20.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
     "@babel/plugin-transform-modules-commonjs": "^7.23.3",
